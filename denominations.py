@@ -10,7 +10,6 @@ def getExactChangeNum(d):
         changes.append(i)
     # change array to reflect actual exact change num 
     for j in range(239):
-   #     print ("coins = " + str(j + 1))
         if (j == d[0] - 1 or j == d[1] -1  or j == d[2] - 1 or j == d[3] - 1 ):
                 changes[j] = 1
   #              print("exact change " + str(changes[j]))
@@ -38,27 +37,19 @@ def getExactChangeNum(d):
                 continue
             if (j >= d[0]):
                 d4 = changes[j - d[0]] + 1
-  #              print("d4 " + str(d4)) 
-                changes[j] = min(d1,d2,d3,d4) 
-   #             print("exact change " + str(changes[j]))
+                changes[j] = min(d1,d2,d3,d4)
             else:
                 changes[j] =  min(d1,d2,d3)
-   #             print("exact change " + str(changes[j]))
     return changes
 
 #calculates ever single possible change and sums it
 def sumExactChangeNum(ch ,N): 
     sum = 0
- #   print("start")
     for num in range(239): 
         if ((num + 1)%5 == 0):
             sum += (N*ch[num])
- #           print("change =" + str(num + 1))
- #           print ("num of coins =" + str(ch[num]))
         else:
             sum += ch[num]
-#            print("change =" + str(num + 1))
-#            print ("num of coins =" + str(ch[num]))
     return sum
 # generates denominations 
 def generate(poundValue, N):
@@ -78,7 +69,6 @@ def generate(poundValue, N):
             num = sumExactChangeNum(values, N)
             if (num < optimalChange):
                 print(denom)
-                print("num")
                 print(num)
                 optimalDenom = denom     
                 optimalChange = num
